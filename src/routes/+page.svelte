@@ -1,12 +1,7 @@
 <script lang="ts">
 	import TasksForm from '../components/tasks-form.svelte';
-
-	type Task = {
-		id: string;
-		title: string;
-		done: boolean;
-	};
-
+	import TasksList from '../components/tasks-list.svelte';
+	import type { Task } from '../types';
 	let message = 'Tasks App';
 	let tasks = $state<Task[]>([]);
 
@@ -19,16 +14,11 @@
 	}
 </script>
 
+ks)
 <main>
 	<h1>{message}</h1>
 	<TasksForm {addTask} />
-	<section>
-		{#each tasks as task}
-			<article>
-				{task.title}
-			</article>
-		{/each}
-	</section>
+	<TasksList {tasks} />
 </main>
 
 <style>
