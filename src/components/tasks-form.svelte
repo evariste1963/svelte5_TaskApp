@@ -16,7 +16,8 @@
 <form onsubmit={formSubmitted}>
 	<label>
 		Task
-		<input name="newTask" bind:value={newTask} />
+    <!-- svelte-ignore a11y_autofocus -->
+		<input name="newTask" bind:value={newTask} autofocus/>
 	</label>
 	<div class="button-container">
 		<button>Add</button>
