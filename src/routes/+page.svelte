@@ -4,6 +4,7 @@
 	import type { Task } from '../types';
 	let message = 'Tasks App';
 	let tasks = $state<Task[]>([]);
+	let totalDone = $derived(tasks.reduce((total, task) => total + Number(task.done), 0));
 
 	function addTask(newTask: string) {
 		tasks.push({
@@ -12,12 +13,23 @@
 			done: false
 		});
 	}
+	function toggleDone(task: Task) {
+		task.done = !task.done;
+	}
+	function removeTask(index: number) {
+		tasks.splice(index, 1);
+	}
 </script>
 
 <main>
 	<h1>{message}</h1>
 	<TasksForm {addTask} />
-	<TasksList {tasks} />
+	{#if tasks.length};
+		<p>{totalDone} / {tasks.length} tasks completed</p>
+	{:else}
+		Add a task to get started
+	{/if}
+	<TasksList {tasks} {toggleDone} {removeTask} />
 </main>
 
 <style>
