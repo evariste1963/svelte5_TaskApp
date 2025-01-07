@@ -24,7 +24,7 @@
 <main>
 	<h1>{message}</h1>
 	<TasksForm {addTask} />
-	{#if tasks.length};
+	{#if tasks.length}
 		<p>{totalDone} / {tasks.length} tasks completed</p>
 	{:else}
 		Add a task to get started
