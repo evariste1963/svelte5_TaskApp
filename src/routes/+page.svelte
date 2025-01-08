@@ -28,12 +28,16 @@
 				return tasks.filter((task) => task.done);
 			}
 		}
-		return tasks;
+		//	return tasks;
 	});
 
 	function toggleDone(task: Task) {
 		task.done = !task.done;
+		// if (currentFilter === 'todo') {
+		// 	tasks.forEach((task) => (task.done = false));
+		// }
 	}
+
 	function removeTask(id: string) {
 		const index = tasks.findIndex((task) => task.id === id);
 		tasks.splice(index, 1);
