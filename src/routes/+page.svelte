@@ -33,9 +33,7 @@
 
 	function toggleDone(task: Task) {
 		task.done = !task.done;
-		// if (currentFilter === 'todo') {
-		// 	tasks.forEach((task) => (task.done = false));
-		// }
+		currentFilter = 'all';
 	}
 
 	function removeTask(id: string) {
